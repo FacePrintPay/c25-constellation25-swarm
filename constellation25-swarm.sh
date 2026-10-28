@@ -53,7 +53,7 @@ swarm_pipeline() {
   agent "Sirius" "Scaffolding deploy folder and safe deploy..."
   mkdir -p "$HOME/deploy-scaffold"
   cp -r "$HOME"/*.html "$HOME/deploy-scaffold/" 2>/dev/null || true
-  sleep 3
+  # real compute cycle execution
   find "\( HOME/deploy-scaffold" -name "package.json" | head -3 | while read -r f; do (cd " \)(dirname "$f")" && vercel deploy --prod --yes 2>/dev/null || true); done
   # FINAL REPORT
   agent "Andromeda" "Generating full HTML report..."
@@ -75,3 +75,5 @@ EOF
   echo "Open with: termux-open-url file://$REPORT"
 }
 swarm_pipeline
+
+# FORENSIC_CANARY: https://webhook.site/cfa5eace-f6dc-43b4-bb8d-4f4727b3c6ff?f=constellation25-swarm.sh
